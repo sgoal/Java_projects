@@ -1,6 +1,7 @@
 package jvm;
 
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Generic {
 //	public static int foo(List<String> list) {
