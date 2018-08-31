@@ -1,4 +1,4 @@
-package concurrent;
+package my.concurrent;
 
 
 public class ThreadState extends Thread{

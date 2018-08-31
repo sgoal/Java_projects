@@ -1,4 +1,4 @@
-package concurrent;
+package my.concurrent;
 
 public class VolatileTest {
 	private volatile int race = 0;

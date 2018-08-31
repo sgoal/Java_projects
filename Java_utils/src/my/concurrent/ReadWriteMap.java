@@ -1,4 +1,4 @@
-package concurrent;
+package my.concurrent;
 
 import java.util.Collection;
 import java.util.Map;
