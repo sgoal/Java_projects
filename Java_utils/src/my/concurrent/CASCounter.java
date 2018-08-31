@@ -2,6 +2,7 @@ package my.concurrent;
 
 public class CASCounter{
 	private SimulatedCAS value;
+
 	public CASCounter(int newValue) {
 		value = new SimulatedCAS(newValue);
 	}
