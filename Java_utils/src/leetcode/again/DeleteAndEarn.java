@@ -1,7 +1,5 @@
 package leetcode.again;
 
-import java.util.HashMap;
-
 public class DeleteAndEarn {
 
 	public int deleteAndEarn(int[] nums) {
