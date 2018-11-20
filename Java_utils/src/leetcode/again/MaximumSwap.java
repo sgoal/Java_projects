@@ -4,17 +4,17 @@ public class MaximumSwap {
 	//The given number is in the range [0, 108],不会溢出
 	public int maximumSwap(int num) {
 	 char[] nums = Integer.toString(num).toCharArray();
-	 int max=-1,min=-1;
+	 int max=-1,min=-1,max_idx = -1;
 	 int max_index = 0;
 	 for(int i=nums.length-1;i>=0;i--) {
 		 if(nums[i]>max) {
 			 max = nums[i];
-			
+			 max_idx = i;
 			 continue;
 		 }
 		 if(nums[i]<max) {
 			 min = i;
-			 max_index = i;
+			 max_index = max_idx;
 		 }
 	 }
 	 
