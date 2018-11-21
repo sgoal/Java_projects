@@ -38,6 +38,34 @@ public class FindAnagrams {
        Map<Character, Long> map =  p.chars().mapToObj(x->(char)x).collect(
     		   Collectors.groupingBy(Character::valueOf,Collectors.counting()));
         List<Integer> res = new ArrayList<>();
+        int begin=0,end=0;
+        int counter= 0;
+        int d=0;
+        while(end<s.length()) {
+        	long temp = map.getOrDefault(s.charAt(end),0l);
+        	//System.out.println(map);
+        	if(map.containsKey(s.charAt(end))) {
+        		//mean in p
+        		map.put(s.charAt(end),temp-1);
+        		if(temp>0)
+        		counter++;
+        	}
+        	end++;
+        	if(counter==p.length()) {
+    			res.add(begin);
+    		}
+        	//windows size is always p.length
+        	while(end-begin==p.length()) {
+        		
+        		if(map.containsKey(s.charAt(begin))) {
+        			map.put(s.charAt(begin), map.get(s.charAt(begin))+1);
+        			if(map.get(s.charAt(begin))>0)//it's ok
+        			counter--;
+        		}
+        		begin++;
+        	}
+        	
+        }
         return res;
 
     }
@@ -45,6 +73,6 @@ public class FindAnagrams {
     	FindAnagrams solution = new FindAnagrams();
     	//System.out.println(solution.findAnagrams("abab", "ab"));
     	System.out.println(solution.findAnagrams("cbaebabacd", "abc"));
+    	System.out.println(solution.findAnagrams("cbraebabacd", "abc"));
 	}
 }
-/
