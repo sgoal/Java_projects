@@ -21,20 +21,28 @@ public class MinWindow {
         		map.put(c,temp-1);
         		if(temp>0)counter++;
         	}
-        	if(counter==t.length()&&res<=end-begin) {
-        		res = Math.min(res, end-begin);
-        		temp1 = s.substring(begin, end);
-        	}
+        	end++;
+        	
+
         	while(counter==t.length()) {
+        		if(counter==t.length()&&res>=end-begin) {
+            		res = Math.min(res, end-begin);
+            		temp1 = s.substring(begin, end);
+            		System.out.println(temp1);
+            	}
         		char b = s.charAt(begin);
         		if(map.containsKey(b)) {
         			long t1 = map.get(b);
         			map.put(b, t1+1);
-        			if(t1==-1)counter--;
+        			if(t1==0)counter--;
         		}
         		begin++;
         	}
         }
         return temp1;
     }
+    public static void main(String[] args) {
+		MinWindow solution = new MinWindow();
+		System.out.println(solution.minWindow("ADOBECODEBANC", "ABC"));
+	}
 }

@@ -32,6 +32,11 @@ import java.util.stream.Collectors;
 //        return d;
 //  }
 
+/**
+ * https://leetcode.com/problems/find-all-anagrams-in-a-string/
+ * @author sgoal
+ *
+ */
 public class FindAnagrams {
     public List<Integer> findAnagrams(String s, String p) {
 
