@@ -20,13 +20,9 @@ public class LengthOfLongestSubstring {
                 res = Math.max(res, end-begin);
             }
     		else {
-    			set.remove(s.charAt(begin++));
-    			
+    			set.remove(s.charAt(begin++));    			
 			}
-    		
-    		end++;
-    		
-    		
+     		
     	}
         return res;
     }
