@@ -1,11 +1,14 @@
 package leetcode.again;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.TreeMap;
 
+/**
+ * https://leetcode.com/problems/all-oone-data-structure/
+ * @author sgoal
+ *
+ */
 public class AllOne {
 	TreeMap<Integer, HashSet<String>> map;
 	HashMap<String, Integer> keysMap;
@@ -30,13 +33,12 @@ public class AllOne {
     	set = map.getOrDefault(count, new HashSet<>());
     	set.add(key);
         map.put(count, set);
-    	System.out.println("----------inc----------");
-    	System.out.println(map);
-    	System.out.println(keysMap);
+ 
     }
     
     /** Decrements an existing key by 1. If Key's value is 1, remove it from the data structure. */
     public void dec(String key) {
+    	
         if(keysMap.containsKey(key)) {
         	int count = keysMap.get(key);
         	if(count==1) {
@@ -47,26 +49,26 @@ public class AllOne {
         	}else {
         		keysMap.put(key, count-1);
         		HashSet<String> list = map.get(count);
+        		
         		list.remove(key);
         		if(list.isEmpty())map.remove(count);
+        		
         		list = map.getOrDefault(count-1, new HashSet<>());
         		list.add(key);
-        		map.put(count, list);
+        		
+        		map.put(count-1, list);
         		
         	}
         }
-    	System.out.println("----------dec----------");
-    	System.out.println(map);
-    	System.out.println(keysMap);
+    	
+
     }
     
     /** Returns one of the keys with maximal value. */
     public String getMaxKey() {
     	if(map.isEmpty())
     		return "";
-    	System.out.println("--------------------");
-    	System.out.println(map);
-    	System.out.println(keysMap);
+
         return map.lastEntry().getValue().iterator().next();
     }
     
