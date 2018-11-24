@@ -1,6 +1,4 @@
 package leetcode.again;
-
-import leetcode.again.SolutionRandomeNode.ListNode;
 //https://leetcode.com/problems/linked-list-cycle-ii/
 //2k-k=nr,k=nr
 public class DetectCycle {
