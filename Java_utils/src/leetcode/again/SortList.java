@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 //Definition for singly-linked list.
- class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
-  }
 
 public class SortList {
     public ListNode sortList(ListNode head) {

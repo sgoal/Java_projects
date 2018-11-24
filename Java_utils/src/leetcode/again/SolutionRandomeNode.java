@@ -9,14 +9,14 @@ package leetcode.again;
  * }
  */
 
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) { val = x; }
-}
+//TODO have no idea
 //https://leetcode.com/problems/linked-list-random-node/
 public class SolutionRandomeNode {
-
+	class ListNode {
+	     int val;
+	     ListNode next;
+	     ListNode(int x) { val = x; }
+	}
     /** @param head The linked list's head.
         Note that the head is guaranteed to be not null, so it contains at least one node. */
     public SolutionRandomeNode(ListNode head) {
@@ -25,7 +25,7 @@ public class SolutionRandomeNode {
     
     /** Returns a random node's value. */
     public int getRandom() {
-        
+        return 0;
     }
 }
 
