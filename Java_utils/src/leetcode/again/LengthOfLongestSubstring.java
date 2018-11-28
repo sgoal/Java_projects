@@ -12,7 +12,6 @@ public class LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
     	HashSet<Character> set = new HashSet<>();
     	int end=0,begin=0;
-    	int counter = 0;
     	int res= 0;
     	while(end<s.length()) {
     		if(!set.contains(s.charAt(end))){

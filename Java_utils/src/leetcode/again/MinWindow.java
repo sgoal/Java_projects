@@ -11,7 +11,6 @@ public class MinWindow {
         Map<Character,Long> map =  t.chars().mapToObj(x->(char)x).collect(
         		Collectors.groupingBy(Character::valueOf, Collectors.counting()));
         int end=0,begin=0;int counter=0;
-        int d = 0;
         int res = Integer.MAX_VALUE;
         String temp1 = "";
         while(end<s.length()) {

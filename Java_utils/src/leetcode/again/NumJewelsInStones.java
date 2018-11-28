@@ -1,11 +1,7 @@
 package leetcode.again;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class NumJewelsInStones {
 	  public int numJewelsInStones(String J, String S) {
