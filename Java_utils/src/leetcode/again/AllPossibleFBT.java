@@ -1,6 +1,7 @@
 package leetcode.again;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 /**
  * Definition for a binary tree node.
@@ -13,34 +14,29 @@ class TreeNode {
   }
 
 public class AllPossibleFBT {
-	
-	   public List<TreeNode> allPossibleFBT(int N) {
-	        List<TreeNode> nodes = new ArrayList<>();
-	        TreeNode root = new TreeNode(0);
-	        getTree(N-1, root, nodes,root);
-	        return nodes;
-	    }
+   HashMap<Integer, List<TreeNode>> cache = new HashMap<>();
+   public List<TreeNode> allPossibleFBT(int N) {
+	   if(cache.containsKey(N))return cache.get(N);
+        List<TreeNode> nodes = new ArrayList<>();
+        if(N<=0)return nodes;
+        if(N%2==0)return nodes;
+        if(N==1)nodes.add(new TreeNode(0));
+        else {
+	        
+	        for(int i=0;i<N;i++) {
+	        	int x = N-1-i;
+	        	for(TreeNode node0:allPossibleFBT(x))
+	        		for(TreeNode node1:allPossibleFBT(i)) {
+	        			TreeNode root = new TreeNode(0);
+	        			root.left = node0;
+	        			root.right =node1;
+	        			nodes.add(root);
+	        		}
+	        }
+	        cache.put(N,nodes);
+        }
+        return nodes;
+    }
 	   
-	   void getTree(int n,TreeNode node, List<TreeNode> res,TreeNode root) {
-		   if(n==0) {res.add(copy(root));return;}
-		   if(n==1) {
-			   return;
-		   }
-
-		   node.left = new TreeNode(0);
-		   node.right = new TreeNode(0);
-		   if(n-2==0) {res.add(copy(root));return;}
-		   getTree(n-2, node.left, res, root);
-		   node.left = new TreeNode(0);
-		   getTree(n-2, node.right, res,root);
-		   node.right = new TreeNode(0);
-		     
-	   }
-	   TreeNode copy(TreeNode root) {
-		   if(root==null)return null;
-		   TreeNode treeNode = new TreeNode(0);
-		   treeNode.left = copy(treeNode.left);
-		   treeNode.right = copy(treeNode.right);
-		   return treeNode;
-	   }
+	   
 }
