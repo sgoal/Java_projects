@@ -11,25 +11,24 @@ public class SpiralOrder {
         List<Integer> res = new ArrayList<>();
         if(matrix==null||matrix.length==0)return res;
         int[][] dir= {{0,1},{1,0},{0,-1},{-1,0}};//left,down,right,up
+        boolean[][] seen = new boolean[matrix.length][matrix[0].length];
         int rown = matrix.length,coln = matrix[0].length;
         int row=0,col=0,d = 0;
         int len = rown*coln;
-        int up=0,down=rown,left=0,right=coln;
         for(int i=0;i<len;i++) {
-        	System.out.println(row + "  " + col+" d " + d );
+//        	System.out.println(row + "  " + col+" d " + d );
         	res.add(matrix[row][col]);
         	
-        	row += dir[d][0];
-        	col += dir[d][1];
-        	
-        	//System.out.println(row + "  " + col);
-        	if(col>=right) {col=right-1;row++;d = (d+1)%4;}
-        	
-        	if(row>=down) {row=down-1;col++;d = (d+1)%4;}
-        	if(col==right) {right--;col=right-1;}
-//        	if(row==down)down--;
-        	if(col<left){col=left;left++;d = (d+1)%4;}
-        	if(row<up){col=up;up++;d = (d+1)%4;}
+        	int rowt = row+dir[d][0];
+        	int colt = col + dir[d][1];
+        	seen[row][col]=true;
+        	if(rowt>=0&&colt>=0&&rowt<rown&&colt<coln&&!seen[rowt][colt]) {
+        		row = rowt;col=colt;
+        	}else {
+				d = (d+1)%4;
+				row+=dir[d][0];
+				col += dir[d][1];
+			}
         }
         return res;
     }
