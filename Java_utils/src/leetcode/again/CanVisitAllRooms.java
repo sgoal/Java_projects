@@ -12,10 +12,9 @@ public class CanVisitAllRooms {
     }
     void helper(List<List<Integer>> rooms, int next,HashSet<Integer> seen) {
     	if(seen.contains(next))return;
+		seen.add(next);
     	for(int n:rooms.get(next)) {
-    		seen.add(n);
     		helper(rooms, n, seen);
     	}
-    	
     }
 }
