@@ -25,4 +25,23 @@ public class MinFallingPathSum {
 		   for(int j=1;j<dp.length-1;j++) min = Math.min(min, dp[j]);
 		   return min;
 	    }
+	  
+	  public int minFallingPathSum1(int[][] A) {
+	   	 int n = A.length;
+	   	 for(int i=1;i<n;i++)
+	   		 for(int j=0;j<n;j++) {
+	   			 int best = A[i-1][j];
+	   			 if(j<n-1)
+	   				 best = Math.min(best, A[i-1][j+1]);
+	   			 if(j>0)
+	   				 best = Math.min(best, A[i-1][j-1]);
+	   			 A[i][j]+=best;
+	   			 
+	   		 }
+	   	 int ans = Integer.MAX_VALUE;
+	   	 for(int a:A[n-1])
+	   		 ans = Math.min(ans, a);
+	   	 return ans;
+	  }
+
 }
