@@ -15,7 +15,6 @@ public class Multiply {
         for(int j=index1;j>=0;j--) {
         	char c1 = arr1[j];
         	int t1 = (c1-'0')*base;
-        	//base*=10;
         	for(int i=index2;i>=0;i--) {
         		int t2 = arr2[i]-'0';
         		res[index2-j+index1-i]+= t1*t2;
