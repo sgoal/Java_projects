@@ -35,7 +35,7 @@ public class LowestCommonAncestor {
     	return count+l+r;
     }
     
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
         if(root==null)return null;
         LinkedList<TreeNode> stack = new LinkedList<>();
         HashMap<TreeNode, TreeNode> parent = new HashMap<>();
@@ -61,5 +61,12 @@ public class LowestCommonAncestor {
         	p = parent.get(p);
         }
         return p;
+    }
+    
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root==null||root==q||root==p)return root;
+        TreeNode l = lowestCommonAncestor(root.left,p, q);
+        TreeNode r = lowestCommonAncestor(root.left,p, q);
+        return l==null&&r==null?root:(l==null?r:l);
     }
 }
