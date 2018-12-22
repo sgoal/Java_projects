@@ -14,7 +14,7 @@ public class LetterCasePermutation {
         		for(int i=0;i<len;i++) {
         			StringBuffer sb = new StringBuffer(temp.get(i));
         			if(Character.isLowerCase(c))
-        			sb.append(Character.toUpperCase(c));
+        				sb.append(Character.toUpperCase(c));
         			else
         				sb.append(Character.toLowerCase(c));
         			temp.add(sb);
